@@ -1,5 +1,7 @@
 # torchvision官方的imagenet训练代码
 
+示例脚本为imagenet-test-meng.sh
+
 传入了max_worker参数（n为64），因此可以在少于64个gpu上进行训练，以8个gpu为例，训练将在每8步的前7步不更新参数并存储对应梯度，并在最后一步和其他节点（也是一样的过程）通信同步梯度结果并更新参数。
 
 建议固定minibatchsize否则按原始代码逻辑，随一个节点上的gpu个数变化，minibatchsize会不同
